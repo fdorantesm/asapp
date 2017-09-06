@@ -43,14 +43,15 @@ Meanwhile in app...
 #
 
 .
-├── app
-│  └── config
-│      ├─── routes
-│      │    └─── router.js
-│      │    └─── users.js
-│      │    └─── posts.js
-│      └─── settings
-│            └─── locals.js
+|-- app
+|   `-- config
+|       |-- routes
+|       |   |-- posts.js
+|       |   |-- router.js
+|       |   `-- users.js
+|       `-- settings
+|           `-- locals.js
+
 
 
 router.js
