@@ -6,6 +6,7 @@ var struct = {
 	app: 'app',
 	functions:{},
 	dirs:[
+		{ 'app': '/' },
 		{ 'config' : 'config/settings' },
 		{ 'schema' : 'config/schemas' },
 		{ 'route' : 'config/routes' },
@@ -23,7 +24,8 @@ var struct = {
 var $ = function(dir) {
 	return function(sub){
 		return function(file){
-			return require(`${path.dirname(require.main.filename)}/${dir}/${sub}/${file}`)
+			var route =  sub!="/" ? `${dir}/${sub}/${file}` : `${dir}/${file}`
+			return require(`${path.dirname(require.main.filename)}/${route}`)
 		}
 	}
 }

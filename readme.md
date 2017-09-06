@@ -12,6 +12,7 @@ npm i --save asapp
 
 #### Functions
 
+* App
 * Config
 * Schema
 * Route
@@ -22,6 +23,8 @@ npm i --save asapp
 * Locale
 * Model
 * View
+
+Note: Use lower case to call these functions
 
 #### How to use
 
