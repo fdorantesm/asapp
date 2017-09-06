@@ -1,0 +1,25 @@
+{
+  "name": "asapp",
+  "version": "1.0.0",
+  "description": "NodeJS mvc framework structure, as simple as possible",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WCLab/asapp.git"
+  },
+  "keywords": [
+    "mvc",
+    "express",
+    "nodejs",
+    "simple"
+  ],
+  "author": "fdorantesm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WCLab/asapp/issues"
+  },
+  "homepage": "https://github.com/WCLab/asapp#readme"
+}
