@@ -41,7 +41,7 @@ module.exports = app
 Meanwhile in app...
 
 #
-
+<pre>
 .
 ├── app
 │  └── config
@@ -52,7 +52,7 @@ Meanwhile in app...
 │      └─── settings
 │            └─── locals.js
 
-
+</pre>
 router.js
 ```js
 
