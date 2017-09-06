@@ -3,18 +3,19 @@
 var path = require('path')
 
 var struct = {
-	app: "app",
+	app: 'app',
 	functions:{},
 	dirs:[
-		{"config" : "config/settings"},
-		{"schema" : "config/schemas"},
-		{"controller" : "controllers"},
-		{"helper" : "helpers"},
-		{"library" : "libraries"},
-		{"locale" : "locales"},
-		{"middleware" : "middlewares"},
-		{"model" : "models"},
-		{"view" : "views"}
+		{ 'config' : 'config/settings' },
+		{ 'schema' : 'config/schemas' },
+		{ 'route' : 'config/routes' },
+		{ 'controller' : 'controllers' },
+		{ 'middleware' : 'middlewares' },
+		{ 'helper' : 'helpers' },
+		{ 'library' : 'libraries' },
+		{ 'locale' : 'locales' },
+		{ 'model' : 'models' },
+		{ 'view' : 'views' }
 	],
 }
 
