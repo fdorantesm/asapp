@@ -3,7 +3,10 @@
 var path = require('path')
 
 var struct = {
-	app: 'app',
+	app: {
+		relative: 'app',
+		absolute: `${path.dirname(require.main.filename)}/app`
+	},
 	functions:{},
 	dirs:[
 		{ 'app': '/' },
@@ -32,7 +35,9 @@ var $ = function(dir) {
 
 
 struct.dirs.forEach(function(item){
-	struct.functions[Object.keys(item).toString()] = $(struct.app)(item[Object.keys(item).toString()])
+	struct.functions[Object.keys(item).toString()] = $(struct.app.relative)(item[Object.keys(item).toString()])
 })
+
+struct.functions.APP = struct.app.absolute
 
 module.exports = struct.functions
