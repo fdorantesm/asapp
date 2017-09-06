@@ -26,6 +26,24 @@ npm i --save asapp
 
 Note: Use lower case to call these functions
 
+#### App structure
+
+<pre>
+app
+├── config
+│ ├── routes
+│ ├── schemas
+│ └── settings
+├── controllers
+├── helpers
+├── libraries
+├── locales
+├── middlewares
+└── models
+</pre>
+
+You can add subdirectories and call modules using the same function as normally: `asapp.helpers('payments/visa')`
+
 #### How to use
 
 ```
