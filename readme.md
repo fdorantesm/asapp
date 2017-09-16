@@ -22,7 +22,7 @@ npm i --save asapp
 * Library
 * Locale
 * Model
-* View
+
 
 Note: Use lower case to call these functions
 
