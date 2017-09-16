@@ -1,6 +1,6 @@
 {
   "name": "asapp",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "NodeJS mvc framework structure, as simple as possible",
   "main": "index.js",
   "scripts": {

@@ -18,8 +18,7 @@ var struct = {
 		{ 'helper' : 'helpers' },
 		{ 'library' : 'libraries' },
 		{ 'locale' : 'locales' },
-		{ 'model' : 'models' },
-		{ 'view' : 'views' }
+		{ 'model' : 'models' }
 	],
 }
 
