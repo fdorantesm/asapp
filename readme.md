@@ -128,7 +128,7 @@ module.exports = app
 
 #### Do you like it? 
 
-Try with a base proyect
+Try with a base project
 
 [https://github.com/fdorantesm/express-assap](https://github.com/fdorantesm/express-assap)
 
