@@ -2,6 +2,26 @@
 
 As simple as possible project structure
 
+#### Changelog v2.0.0
+
+Root and directory path now is based in main node_modules directory instead require.main.filename.
+
+* Routes, middlewares and controllers were moved to app/http
+* Models and schemas were moved to app/db
+* Settings files are in root config directory (app/config).
+
+This update let you :
+
+* Serve the application inside another directories, like bin. If you use express-generator try it please.
+
+* Better app structure
+
+#### New features
+
+* ROOT: Returns absolute project path. eg: /home/fdorantesm/www/ilumont
+
+* application alias to app: If you define express application as 'app' you couldn't to used the destruct syntax before.
+
 #
 
 #### Installation
@@ -12,7 +32,7 @@ npm i --save asapp
 
 #### Functions
 
-* App
+* App / application
 * Config
 * Schema
 * Route
@@ -23,23 +43,33 @@ npm i --save asapp
 * Locale
 * Model
 
-
 Note: Use lower case to call these functions
+
+#### Constants
+
+* APP
+* ROOT
+
+#
 
 #### App structure
 
+
 <pre>
+
 app
 ├── config
-│ ├── routes
+├── db
+│ ├── models
 │ ├── schemas
-│ └── settings
-├── controllers
 ├── helpers
+├── http
+│ ├── controllers
+│ ├── middlewares
+│ ├── routes
 ├── libraries
 ├── locales
-├── middlewares
-└── models
+
 </pre>
 
 You can add subdirectories and call modules using the same function as normally: `asapp.helpers('payments/visa')`
@@ -50,10 +80,10 @@ You can add subdirectories and call modules using the same function as normally:
 var express = require('express')
 var app = express()
 
-var asapp = require('asapp')
+var {config, route} = require('asapp')
 
-app.locals(asapp.config('locals'))
-app.use('/', asapp.route('router'))
+app.locals(config('locals'))
+app.use('/', route('router'))
 
 module.exports = app
 
@@ -61,17 +91,23 @@ module.exports = app
 
 Meanwhile in app...
 
-#
+
 <pre>
+
 .
-|-- app
-|   `-- config
-|       |-- routes
-|       |   |-- posts.js
-|       |   |-- router.js
-|       |   `-- users.js
-|       `-- settings
-|           `-- locals.js
+├── app
+│   ├── config
+│   │   ├── locals.js
+│   ├── http
+│   │   ├── controllers
+│   │   ├── middlewares
+│   │   │   └── test.js
+│   │   └── routes
+│   │       ├── router.js
+│   │       └── test.js
+
+
+
 
 
 </pre>
@@ -82,8 +118,7 @@ var express = require('express')
 var app = express()
 var asapp = require('asapp')
 
-app.use('/users', asapp.route('users'))
-app.use('/posts', asapp.route('posts'))
+app.use('/test', asapp.route('test'))
 
 module.exports = app
 

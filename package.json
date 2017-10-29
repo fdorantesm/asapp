@@ -1,10 +1,12 @@
 {
   "name": "asapp",
-  "version": "1.2.4",
+  "version": "2.0.0",
   "description": "NodeJS mvc framework structure, as simple as possible",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "local": "echo \"Error: no local specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prod": "echo \"Error: no prod specified\" && exit 1"
   },
   "repository": {
     "type": "git",

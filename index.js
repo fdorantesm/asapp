@@ -1,42 +1,42 @@
 'use strict'
 
-var path = require('path')
+let path = require('path')
+let rootPath = path.dirname(require.main.children[0].filename).replace(/\/node_modules\/.*/g,'')
+let struct = {}
 
-var struct = {
-	app: {
-		relative: 'app',
-		absolute: `${path.dirname(require.main.filename)}/app`
-	},
-	functions:{},
-	dirs:[
-		{ 'app': '/' },
-		{ 'config' : 'config/settings' },
-		{ 'schema' : 'config/schemas' },
-		{ 'route' : 'config/routes' },
-		{ 'controller' : 'controllers' },
-		{ 'middleware' : 'middlewares' },
-		{ 'helper' : 'helpers' },
-		{ 'library' : 'libraries' },
-		{ 'locale' : 'locales' },
-		{ 'model' : 'models' }
-	],
+struct.functions = module.exports = {}
+
+struct.app = {
+	relative: 'app',
+	absolute: `${rootPath}/app`
 }
 
+struct.dirs = [
+	{ 'app': '/' },
+	{ 'config' : 'config' },
+	{ 'controller' : 'http/controllers' },
+	{ 'middleware' : 'http/middlewares' },
+	{ 'route' : 'http/routes' },
+	{ 'helper' : 'helpers' },
+	{ 'library' : 'libraries' },
+	{ 'locale' : 'locales' },
+	{ 'model' : 'db/models' },
+	{ 'schema' : 'db/schemas' },
+]
 
-var $ = function(dir) {
+let $ = function(dir) {
 	return function(sub){
 		return function(file){
-			var route =  sub!="/" ? `${dir}/${sub}/${file}` : `${dir}/${file}`
-			return require(`${path.dirname(require.main.filename)}/${route}`)
+			let route =  sub!="/" ? `${dir}/${sub}/${file}` : `${dir}/${file}`
+			return require(`${rootPath}/${route}`)
 		}
 	}
 }
-
 
 struct.dirs.forEach(function(item){
 	struct.functions[Object.keys(item).toString()] = $(struct.app.relative)(item[Object.keys(item).toString()])
 })
 
 struct.functions.APP = struct.app.absolute
-
-module.exports = struct.functions
+struct.functions.ROOT = rootPath
+struct.functions.application = struct.functions.app
