@@ -25,17 +25,17 @@ struct.dirs = [
 ]
 
 let $ = (dir) => {
-	return (sub) =>{
-		return (file) =>{
+	return (sub) => {
+		return (file) => {
 			let route =  sub!="/" ? `${dir}/${sub}/${file}` : `${dir}/${file}`
 			return require(`${rootPath}/${route}`)
 		}
 	}
 }
 
-struct.dirs.forEach((item) =>{
+for (let item of struct.dirs) {
 	struct.functions[Object.keys(item).toString()] = $(struct.app.relative)(item[Object.keys(item).toString()])
-})
+}
 
 struct.functions.APP = struct.app.absolute
 struct.functions.ROOT = rootPath
