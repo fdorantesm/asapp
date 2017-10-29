@@ -24,16 +24,16 @@ struct.dirs = [
 	{ 'schema' : 'db/schemas' },
 ]
 
-let $ = function(dir) {
-	return function(sub){
-		return function(file){
+let $ = (dir) => {
+	return (sub) =>{
+		return (file) =>{
 			let route =  sub!="/" ? `${dir}/${sub}/${file}` : `${dir}/${file}`
 			return require(`${rootPath}/${route}`)
 		}
 	}
 }
 
-struct.dirs.forEach(function(item){
+struct.dirs.forEach((item) =>{
 	struct.functions[Object.keys(item).toString()] = $(struct.app.relative)(item[Object.keys(item).toString()])
 })
 
