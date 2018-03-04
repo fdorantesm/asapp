@@ -1,7 +1,7 @@
 'use strict'
 
 let path = require('path')
-let rootPath = path.dirname(require.main.children[0].filename).replace(/\/node_modules\/.*/g,'')
+let rootPath = path.dirname(require.main.children[0].filename).replace(/[\/\\]node_modules[\/\\].*/g,'')
 let struct = {}
 
 struct.functions = module.exports = {}
